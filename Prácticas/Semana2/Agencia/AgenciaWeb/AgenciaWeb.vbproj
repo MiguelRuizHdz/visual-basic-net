@@ -92,9 +92,24 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="frmAutomovil.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agencia.Master.designer.vb">
+      <DependentUpon>Agencia.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Agencia.Master.vb">
+      <DependentUpon>Agencia.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAutomovil.aspx.designer.vb">
+      <DependentUpon>frmAutomovil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAutomovil.aspx.vb">
+      <DependentUpon>frmAutomovil.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,6 +139,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Agencia.Master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

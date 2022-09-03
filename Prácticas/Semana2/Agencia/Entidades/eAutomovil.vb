@@ -50,4 +50,16 @@
         End Set
     End Property
 
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(automovilid As Integer, marca As String, modelo As String, anio As Integer, precio As Integer)
+        _automovilid = automovilid
+        _marca = marca
+        _modelo = modelo
+        _anio = anio
+        _precio = precio
+    End Sub
+
 End Class

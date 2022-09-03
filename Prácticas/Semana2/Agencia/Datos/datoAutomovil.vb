@@ -11,7 +11,7 @@ Public Class datoAutomovil
 
     Public Function AgregarAutomovil(automovil As eAutomovil) As Integer
         Dim cnn As New SqlConnection(Conexion.cadenaconexion())
-        Dim cmd As New SqlCommand("AutomovilInserta")
+        Dim cmd As New SqlCommand("AutomovilInserta", cnn)
         cmd.CommandType = CommandType.StoredProcedure
 
         cmd.Parameters.Add("Marca", SqlDbType.VarChar, 100).Value = automovil.Marca
@@ -37,7 +37,7 @@ Public Class datoAutomovil
 
     Public Function ActualizarAutomovil(automovil As eAutomovil) As Integer
         Dim cnn As New SqlConnection(Conexion.cadenaconexion())
-        Dim cmd As New SqlCommand("AutomovilActualiza")
+        Dim cmd As New SqlCommand("AutomovilActualiza", cnn)
         Dim id As Integer
         id = 0
         cmd.CommandType = CommandType.StoredProcedure
@@ -64,10 +64,10 @@ Public Class datoAutomovil
 
     Public Function ConsultarAutomovil(ByVal automovilid As Integer) As eAutomovil
         Dim cnn As New SqlConnection(Conexion.cadenaconexion())
-        Dim cmd As New SqlCommand("AutomovilConsultaXId")
+        Dim cmd As New SqlCommand("AutomovilConsultaXId", cnn)
         cmd.CommandType = CommandType.StoredProcedure
 
-        Dim automovil As eAutomovil
+        Dim automovil As New eAutomovil
         cmd.Parameters.Add("AutomovilId", SqlDbType.Int).Value = automovilid
         cnn.Open()
 
@@ -92,5 +92,66 @@ Public Class datoAutomovil
 
         Return automovil
     End Function
+
+    Public Function ConsultarAutomovil() As List(Of eAutomovil)
+        Dim cnn As New SqlConnection(Conexion.cadenaconexion())
+        Dim cmd As New SqlCommand("AutomovilConsulta", cnn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Dim lAutomovil As New List(Of eAutomovil)()
+        Dim automovil As eAutomovil
+
+        cnn.Open()
+
+        Try
+            If cnn.State = ConnectionState.Closed Then
+                cnn.Open()
+            End If
+            Dim dr As SqlDataReader
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                While (dr.Read())
+                    automovil = New eAutomovil
+                    automovil.Automovilid = dr("AutomovilId")
+                    automovil.Marca = dr("Marca")
+                    automovil.Modelo = dr("Modelo")
+                    automovil.Anio = dr("Anio")
+                    automovil.Precio = dr("Precio")
+                    lAutomovil.Add(automovil)
+                End While
+            End If
+            dr.Close()
+            cnn.Close()
+        Catch ex As Exception
+            Return lAutomovil
+        End Try
+
+        Return lAutomovil
+    End Function
+
+    Public Function EliminarAutomovil(ByVal automovilid As Integer) As Integer
+        Dim cnn As New SqlConnection(Conexion.cadenaconexion())
+        Dim cmd As New SqlCommand("AutomovilElimina", cnn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        cmd.Parameters.Add("AutomovilId", SqlDbType.Int).Value = automovilid
+        cnn.Open()
+
+        Dim id As Integer
+        id = 0
+        cnn.Open()
+        Try
+            If cnn.State = ConnectionState.Closed Then
+                cnn.Open()
+            End If
+            id = cmd.ExecuteNonQuery()
+            cnn.Close()
+        Catch ex As Exception
+            Return 0
+        End Try
+
+        Return id
+    End Function
+
 
 End Class
