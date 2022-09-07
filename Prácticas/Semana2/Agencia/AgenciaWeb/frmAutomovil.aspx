@@ -13,7 +13,7 @@
                 <asp:Label ID="lblAutomovilId" runat="server" Text="Automovil Id"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtAutomovilId" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAutomovilId" runat="server" Enabled="False"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -57,14 +57,14 @@
     <table style="width: 100%;">
         <tr>
             <td>
-                <asp:Button ID="cmdGrabar" runat="server" Text="Grabar" />
+                <asp:Button ID="cmdGrabar" runat="server" Text="Grabar" OnClick="cmdGrabar_Click" />
             </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <td colspan="4">&nbsp;</td>
+            <td colspan="4"></td>
         </tr>
         <tr colspan="4">
             <asp:GridView ID="grvAutomovil" runat="server"></asp:GridView>

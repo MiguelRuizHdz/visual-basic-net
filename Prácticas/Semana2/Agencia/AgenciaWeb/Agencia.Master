@@ -26,7 +26,11 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Menu ID="Menu1" runat="server"></asp:Menu>
+                        <asp:Menu ID="Menu1" runat="server">
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/frmAutomovil.aspx" Text="Autos" Value="1"/> 
+                            </Items>
+                        </asp:Menu>
                     </td>
                     <td>
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
