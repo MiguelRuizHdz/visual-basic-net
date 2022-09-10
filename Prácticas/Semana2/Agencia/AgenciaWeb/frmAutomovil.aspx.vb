@@ -23,8 +23,10 @@ Public Class frmAutomovil
         graba = negocioAutomovil.AgregarAutomovil(automovil)
         If graba > 0 Then
             lblResultado.Text = "Registro agregado"
+            lblResultado.ForeColor = Drawing.Color.Green
         Else
             lblResultado.Text = "Registro No agregado"
+            lblResultado.ForeColor = Drawing.Color.Red
         End If
         ActualizagrvAutomovil()
     End Sub
