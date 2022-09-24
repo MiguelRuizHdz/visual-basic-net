@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Datos")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Siemens AG")>
+<Assembly: AssemblyCompany("Miguel Ruiz")>
 <Assembly: AssemblyProduct("Datos")>
-<Assembly: AssemblyCopyright("Copyright © Siemens AG 2022")>
+<Assembly: AssemblyCopyright("Copyright © Miguel Ruiz 2022")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

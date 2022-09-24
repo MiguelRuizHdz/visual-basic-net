@@ -9,9 +9,9 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 <Assembly: AssemblyTitle("AgenciaWeb")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Siemens AG")>
+<Assembly: AssemblyCompany("Miguel Ruiz")>
 <Assembly: AssemblyProduct("AgenciaWeb")>
-<Assembly: AssemblyCopyright("Copyright © Siemens AG 2022")>
+<Assembly: AssemblyCopyright("Copyright © Miguel Ruiz 2022")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
